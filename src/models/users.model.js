@@ -7,10 +7,43 @@ export default function (app) {
   const mongooseClient = app.get('mongooseClient');
   const schema = new mongooseClient.Schema({
   
-    email: { type: String, unique: true, lowercase: true },
-    password: { type: String },
-  
-  
+      name: {
+        type: String,
+        required: true
+      },
+      email: {
+          type: String,
+          unique: true,
+          lowercase: true,
+          required: true
+      },
+      password: {
+          type: String,
+          required: true
+      },
+      phone: {
+          type: String,
+          required: true
+      },
+      gender: {
+          /**
+           * 1. male
+           * 2. female
+           * 3. binary
+           * 4. rather not to say
+           */
+          type: Number,
+          default: 0
+      },
+      avatar: {
+          type: String,
+          default: ''
+      },
+      active: {
+          type: Boolean,
+          default: true
+      }
+    
   }, {
     timestamps: true
   });
