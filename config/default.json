@@ -28,5 +28,5 @@
       "passwordField": "password"
     }
   },
-  "mongodb": "mongodb://localhost:27017/caxton_prime_server"
+  "mongodb": "MONGO_URL"
 }

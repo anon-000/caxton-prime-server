@@ -1,5 +1,8 @@
-import '@feathersjs/authentication';
-import '@feathersjs/authentication-local';
+import * as feathersAuthentication from '@feathersjs/authentication';
+import * as local from '@feathersjs/authentication-local';
+
+const {authenticate} = feathersAuthentication.hooks;
+const {hashPassword, protect} = local.hooks;
 
 export default {
   before: {

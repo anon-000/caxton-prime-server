@@ -27,8 +27,8 @@
     "cjstoes6": "cjs-to-es6 --verbose src",
     "test": "yarn run lint && yarn run jest",
     "lint": "eslint src/. test/. --config .eslintrc.json --fix",
-    "dev": "nodemon src/",
-    "start": "node src/",
+    "dev": "nodemon src/ --exec babel-node",
+    "start": "babel-node src/",
     "jest": "jest  --forceExit"
   },
   "standard": {
@@ -49,6 +49,7 @@
     "@feathersjs/transport-commons": "^4.5.11",
     "compression": "^1.7.4",
     "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "feathers-mongoose": "^8.3.1",
     "helmet": "^4.3.1",
     "mongodb-core": "^3.2.7",
