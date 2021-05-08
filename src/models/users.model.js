@@ -23,8 +23,16 @@ export default function (app) {
       },
       phone: {
           type: String,
-          required: true
       },
+      role: {
+        /**
+         * 11. User
+         * 22. Organization
+         * 33. Admin
+         */
+        type: Number,
+        enum: [1,2,3,4],
+    },
       gender: {
           /**
            * 1. male
@@ -39,6 +47,20 @@ export default function (app) {
           type: String,
           default: ''
       },
+      address:{
+        lane: {
+            type: String,
+        },
+        city: {
+            type: String,
+        },
+        state: {
+            type: String,
+        },
+        pinCode: {
+            type: String,
+        },
+    },
       active: {
           type: Boolean,
           default: true
