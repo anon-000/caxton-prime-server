@@ -1,5 +1,6 @@
 import * as feathersAuthentication from '@feathersjs/authentication';
 import * as local from '@feathersjs/authentication-local';
+import GenerateAccessToken from './hooks/GenerateAccessToken';
 
 const {authenticate} = feathersAuthentication.hooks;
 const {hashPassword, protect} = local.hooks;
@@ -23,7 +24,7 @@ export default {
     ],
     find: [],
     get: [],
-    create: [],
+    create: [GenerateAccessToken()],
     update: [],
     patch: [],
     remove: []
