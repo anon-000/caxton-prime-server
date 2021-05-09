@@ -4,16 +4,16 @@ const createModel = require('../../models/exam-tag.model');
 const hooks = require('./exam-tag.hooks');
 
 module.exports = function (app) {
-  const options = {
-    Model: createModel(app),
-    paginate: app.get('paginate')
-  };
+    const options = {
+        Model: createModel(app),
+        paginate: app.get('paginate')
+    };
 
-  // Initialize our service with any options it requires
-  app.use('/exam-tag', new ExamTag(options, app));
+    // Initialize our service with any options it requires
+    app.use('/exam-tag', new ExamTag(options, app));
 
-  // Get our initialized service so that we can register hooks
-  const service = app.service('exam-tag');
+    // Get our initialized service so that we can register hooks
+    const service = app.service('exam-tag');
 
-  service.hooks(hooks);
+    service.hooks(hooks);
 };
