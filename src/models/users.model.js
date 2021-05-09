@@ -26,21 +26,22 @@ export default function (app) {
         },
         role: {
             /**
-         * 11. User
-         * 22. Organization
-         * 33. Admin
-         */
+             * 1. Student
+             * 2. Organization
+             * 3. Admin
+             */
             type: Number,
-            enum: [1,2,3,4],
+            enum: [1, 2, 3],
+            required: true,
         },
 
         gender: {
             /**
-           * 1. male
-           * 2. female
-           * 3. binary
-           * 4. rather not to say
-           */
+             * 1. male
+             * 2. female
+             * 3. binary
+             * 4. rather not to say
+             */
             type: Number,
             default: 0
         },
@@ -53,7 +54,7 @@ export default function (app) {
             type: String,
             default: ''
         },
-        address:{
+        address: {
             type: {
                 lane: {
                     type: String,

@@ -8,22 +8,22 @@ import LoginHelper from '../../../utils/LoginHelper';
 
 
 const GenerateAccessToken = () => async (context) => {
-  const {app} = context;
+    const {app} = context;
 
 
-  const result = {...context.result};
+    const result = {...context.result};
 
-  Object.keys(context.result).forEach((each) => delete context.result[each]);
-
-
-  const data = await LoginHelper.generateToken(result, app);
+    Object.keys(context.result).forEach((each) => delete context.result[each]);
 
 
-  context.result.accessToken = data.accessToken;
-  context.result.user = data.user;
+    const data = await LoginHelper.generateToken(result, app);
 
 
-  return context;
+    context.result.accessToken = data.accessToken;
+    context.result.user = data.user;
+
+
+    return context;
 
 
 };
