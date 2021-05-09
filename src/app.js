@@ -14,7 +14,7 @@ import appHooks from './app.hooks';
 import channels from './channels';
 import authentication from './authentication';
 import mongoose from './mongoose';
-import dotenv from 'dotenv'
+import dotenv from 'dotenv';
 
 const app = express(feathers());
 
@@ -26,7 +26,7 @@ dotenv.config();
 app.configure(configuration());
 // Enable security, CORS, compression, favicon and body parsing
 app.use(helmet({
-  contentSecurityPolicy: false
+    contentSecurityPolicy: false
 }));
 app.use(cors());
 app.use(compress());

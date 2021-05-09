@@ -6,7 +6,7 @@
  *
  * @returns {function(*): (*)}
  */
- const setId = () => (context) => {
+const setId = () => (context) => {
     const { params } = context;
     if (!params.user) return context;
 
