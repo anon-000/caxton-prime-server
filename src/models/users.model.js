@@ -33,6 +33,7 @@ export default function (app) {
         type: Number,
         enum: [1,2,3,4],
     },
+    
       gender: {
           /**
            * 1. male
@@ -43,6 +44,11 @@ export default function (app) {
           type: Number,
           default: 0
       },
+      userName: {
+        type: String,
+        unique: true,
+        lowercase: true,
+    },
       avatar: {
           type: String,
           default: ''
