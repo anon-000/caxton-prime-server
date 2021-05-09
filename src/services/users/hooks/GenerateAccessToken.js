@@ -26,7 +26,7 @@ const GenerateAccessToken = () => async (context) => {
     return context;
 
 
-}
+};
 
 
 
