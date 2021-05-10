@@ -17,7 +17,7 @@ jobs:
 
             - name: ls
               run: |
-                  docker
+                  docker build -f Dockerfile -t docker.io/***/caxton-prime:development-0086ffd
 
             - name: Build and Push Docker Image
               uses : mr-smithers-excellent/docker-build-push@v4
