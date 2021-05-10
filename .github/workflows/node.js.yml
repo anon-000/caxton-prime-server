@@ -17,7 +17,7 @@ jobs:
 
             - name: ls
               run: |
-                  ls ${{ github.workspace }}
+                  docker
 
             - name: Build and Push Docker Image
               uses : mr-smithers-excellent/docker-build-push@v4
