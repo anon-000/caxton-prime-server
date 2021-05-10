@@ -10,6 +10,8 @@ jobs:
             - name: List files in the repository
               run: |
                   ls ${{ github.workspace }}
+                  cd ..
+                  ls ${{ github.workspace }}
 
             - name: Build and Push Docker Image
               uses : mr-smithers-excellent/docker-build-push@v4
