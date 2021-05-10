@@ -3,7 +3,7 @@
  * @param _fieldNames {String}
  * @returns {function(*): (*)}
  */
- const setCreatedByQuery = (..._fieldNames) => (context) => {
+const setCreatedByQuery = (..._fieldNames) => (context) => {
     const { params } = context;
     if (!params.user) return context;
     const fieldNames = _fieldNames.length ? _fieldNames : ['createdBy'];
