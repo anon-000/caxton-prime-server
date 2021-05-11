@@ -2,7 +2,7 @@ import * as feathersAuthentication from '@feathersjs/authentication';
 import * as local from '@feathersjs/authentication-local';
 import GenerateAccessToken from './hooks/GenerateAccessToken';
 import FRequired from '../../hooks/FRequired';
-import {iff} from 'feathers-hooks-common';
+import {discard, iff} from 'feathers-hooks-common';
 import IsUser from '../../utils/IsUser';
 import setId from '../../hooks/setId';
 
@@ -16,7 +16,7 @@ export default {
         get: [authenticate('jwt')],
         create: [FRequired('role', 'Role is required'), hashPassword('password')],
         update: [hashPassword('password'), authenticate('jwt')],
-        patch: [hashPassword('password'), authenticate('jwt'), iff(IsUser('student'), setId())],
+        patch: [discard('role'), hashPassword('password'), authenticate('jwt'), iff(IsUser('student'), setId())],
         remove: [authenticate('jwt')]
     },
 

@@ -1,5 +1,5 @@
 // Initializes the `users` service on path `/users`
-import { Users } from './users.class';
+import {Users} from './users.class';
 
 import createModel from '../../models/users.model';
 import hooks from './users.hooks';
