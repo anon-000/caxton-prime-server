@@ -5,7 +5,7 @@
 
 
 
-![image](https://github.com/anon-000/caxton-prime-server/blob/development/snaps/login.png?raw=true)
+![image](https://github.com/anon-000/caxton-prime-server/blob/development/snaps/banner.png?raw=true)
 
 
 
