@@ -4,11 +4,8 @@ import logger from './logger';
 import app from './app';
 
 
-const port = app.get('port');
+const port = process.env.PORT || app.get('port');
 
-const server_port = process.env.YOUR_PORT || process.env.PORT || 3030;
-
-console.log(server_port);
 
 const server = app.listen(port);
 
