@@ -6,8 +6,10 @@ import app from './app';
 
 const port = app.get('port');
 
+const server_port = process.env.YOUR_PORT || process.env.PORT || 3030;
 
-const server = app.listen(process.env.PORT || port);
+
+const server = app.listen(server_port);
 
 process.on('unhandledRejection', (reason, p) =>
     logger.error('Unhandled Rejection at: Promise ', p, reason)

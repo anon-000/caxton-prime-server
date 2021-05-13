@@ -1,4 +1,4 @@
 {
-  "host": "https://caxton-prime-server.herokuapp.com/",
+  "host": "0.0.0.0",
   "port": "process.env.PORT"
 }
