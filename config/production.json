@@ -1,4 +1,4 @@
 {
-    "host": "https://caxton-prime-server.herokuapp.com",
+    "host": "caxton-prime-server.herokuapp.com",
     "port": "PORT"
 }
