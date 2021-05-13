@@ -1,5 +1,4 @@
 {
-    "frontend": "./public/dist",
     "host": "https://caxton-prime-server.herokuapp.com",
-    "port": "process.env.PORT"
+    "port": "PORT"
 }
