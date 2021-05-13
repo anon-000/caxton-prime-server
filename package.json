@@ -28,7 +28,7 @@
     "test": "yarn run lint && yarn run jest",
     "lint": "eslint src/. test/. --config .eslintrc.json --fix",
     "dev": "nodemon src/ --exec babel-node",
-    "start": "yarn && babel-node src/",
+    "start": "yarn && yarn dev",
     "jest": "jest  --forceExit"
   },
   "standard": {
