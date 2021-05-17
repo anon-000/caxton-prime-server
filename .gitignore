@@ -111,3 +111,6 @@ lib/
 data/
 
 .env
+
+
+drivecredentials.json
