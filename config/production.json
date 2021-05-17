@@ -1,4 +1,5 @@
 {
     "host": "https://caxton-prime-server.herokuapp.com",
-    "port": "PORT"
+    "port": "PORT",
+    "mongodb": "MONGO_URL"
 }

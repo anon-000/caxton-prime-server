@@ -28,7 +28,7 @@
     "test": "yarn run lint && yarn run jest",
     "lint": "eslint src/. test/. --config .eslintrc.json --fix",
     "dev": "nodemon src/ --exec babel-node",
-    "start": "yarn  && node src/",
+    "start": "yarn && babel-node src/",
     "jest": "jest  --forceExit"
   },
   "standard": {
@@ -54,6 +54,7 @@
     "feathers-hooks-common": "^5.0.5",
     "feathers-mongoose": "^8.3.1",
     "fs": "^0.0.1-security",
+    "googleapis": "^73.0.0",
     "helmet": "^4.3.1",
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
