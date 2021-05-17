@@ -110,7 +110,6 @@ $RECYCLE.BIN/
 lib/
 data/
 
-.env
-
-
 drivecredentials.json
+
+.vercel
