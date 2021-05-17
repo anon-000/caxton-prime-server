@@ -1,8 +1,8 @@
 // Initializes the `upload` service on path `/upload`
-import { Upload } from './upload.class';
+import {Upload} from './upload.class';
 import hooks from './upload.hooks';
 
-import { google } from 'googleapis';
+import {google} from 'googleapis';
 import multer from 'multer';
 import fs from 'fs';
 
@@ -25,7 +25,7 @@ export default function (app) {
 
     // console.log(CREDENTIALS_PATH);
     let storage = multer.memoryStorage();
-    let upload = multer({ storage: storage });
+    let upload = multer({storage: storage});
 
     // Initialize our service with any options it requires
     app.use(
@@ -33,15 +33,16 @@ export default function (app) {
         upload.any(),
         async function (req, res, next) {
             const files = req.files;
-            const folderName = req.body.folderName; // use the folder name in your google drive
+            // const folderName = req.body.folderName; // use the folder name in your google drive
+            const folderName = 'drive'; // use the folder name in your google drive
 
-            if (!folderName) {
-                req.body = {
-                    result: false,
-                    message: 'folderName field is required.',
-                };
-                next();
-            }
+            // if (!folderName) {
+            //     req.body = {
+            //         result: false,
+            //         message: 'folderName field is required.',
+            //     };
+            //     next();
+            // }
 
             // console.log(files);
             try {
@@ -73,13 +74,13 @@ export default function (app) {
                     })
                     .then((res) => res.data.storageQuota);
 
-                const { limit, usage } = storage;
+                const {limit, usage} = storage;
 
                 const storageLimit = parseInt(limit);
                 const storageUsage = parseInt(usage);
 
                 for (const file of files) {
-                    const { size } = file;
+                    const {size} = file;
                     if (storageUsage + size > storageLimit) {
                         req.body = {
                             result: false,
@@ -133,7 +134,7 @@ export default function (app) {
                  */
                 let uploadedFiles = [];
                 for (const file of files) {
-                    const { mimetype, originalname: filename, buffer } = file;
+                    const {mimetype, originalname: filename, buffer} = file;
 
                     const pathToFile = `public/drive/${Date.now()}-${filename}`;
 
@@ -203,15 +204,6 @@ export default function (app) {
 
     service.hooks(hooks);
 }
-
-
-
-
-
-
-
-
-
 
 
 /// old code
