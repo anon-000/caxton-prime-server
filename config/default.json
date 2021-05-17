@@ -1,32 +1,33 @@
 {
-  "host": "localhost",
-  "port": 3000,
-  "public": "../public/",
-  "paginate": {
-    "default": 10,
-    "max": 50
-  },
-  "authentication": {
-    "entity": "user",
-    "service": "users",
-    "secret": "ZrXEqM/w1MGK2PyLkX474/V2dJ0=",
-    "authStrategies": [
-      "jwt",
-      "local"
-    ],
-    "jwtOptions": {
-      "header": {
-        "typ": "access"
-      },
-      "audience": "https://yourdomain.com",
-      "issuer": "feathers",
-      "algorithm": "HS256",
-      "expiresIn": "1d"
+    "host": "localhost",
+    "port": 3000,
+    "public": "../public/",
+    "paginate": {
+        "default": 10,
+        "max": 50
     },
-    "local": {
-      "usernameField": "email",
-      "passwordField": "password"
-    }
-  },
-  "mongodb": "MONGO_URL"
+    "authentication": {
+        "entity": "user",
+        "service": "users",
+        "secret": "ZrXEqM/w1MGK2PyLkX474/V2dJ0=",
+        "authStrategies": [
+            "jwt",
+            "local"
+        ],
+        "jwtOptions": {
+            "header": {
+                "typ": "access"
+            },
+            "audience": "https://yourdomain.com",
+            "issuer": "feathers",
+            "algorithm": "HS256",
+            "expiresIn": "1d"
+        },
+        "local": {
+            "usernameField": "email",
+            "passwordField": "password"
+        }
+    },
+    "mongodb": "MONGO_URL",
+    "CREDENTIALS_PATH": "GOOGLE_APPLICATION_CREDENTIALS"
 }
