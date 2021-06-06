@@ -45,7 +45,7 @@ module.exports = function (app) {
         examTags: [
             {
                 type: Schema.Types.ObjectId,
-                ref: 'exam-tag',
+                ref: 'examTag',
                 default: []
             },
         ],

@@ -9,8 +9,8 @@ module.exports = {
         get: [],
         create: [Permit('admin')],
         update: [],
-        patch: [],
-        remove: []
+        patch: [Permit('admin')],
+        remove: [Permit('admin')]
     },
 
     after: {
