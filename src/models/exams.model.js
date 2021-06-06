@@ -7,7 +7,52 @@ module.exports = function (app) {
     const mongooseClient = app.get('mongooseClient');
     const {Schema} = mongooseClient;
     const schema = new Schema({
-        text: {type: String, required: true}
+        type: {
+            /**
+             * 1. Drafts
+             * 2. Scheduled Exams
+             * 3. Practice Tests
+             */
+            type: Number,
+            enum: [1, 2, 3],
+            required: true,
+        },
+        title: {
+            type: String,
+            required: true,
+        },
+        description: {
+            type: String,
+        },
+        duration: {
+            type: Number,
+            required: true,
+        },
+        guidelines: {
+            type: [String],
+            default: [],
+        },
+        difficulty: {
+            /**
+             * 1. Easy
+             * 2. Medium
+             * 3. Hard
+             */
+            type: Number,
+            enum: [1, 2, 3],
+            required: true,
+        },
+        examTags: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'exam-tag',
+                default: []
+            },
+        ],
+        scheduledAt: {
+            type: Date,
+        }
+
     }, {
         timestamps: true
     });
