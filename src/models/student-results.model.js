@@ -1,33 +1,30 @@
-// questions-model.js - A mongoose model
+// student-results-model.js - A mongoose model
 //
 // See http://mongoosejs.com/docs/models.html
 // for more of what you can do here.
 module.exports = function (app) {
-    const modelName = 'questions';
+    const modelName = 'studentResults';
     const mongooseClient = app.get('mongooseClient');
     const {Schema} = mongooseClient;
     const schema = new Schema({
-        question: {
-            type: String,
-            required: true,
-        },
-        options: {
-            type: [String],
-            required: true,
-        },
-        answer: {
-            type: [String],
-            required: true,
-        },
         exam: {
             type: Schema.Types.ObjectId,
             ref: 'exams',
             required: true,
         },
-        mark: {
-            type: Number,
-            default: 4,
-        },
+        studentAnswer: {
+            type: [
+                {
+                    question: {
+                        type: Schema.Types.ObjectId,
+                        ref: 'questions',
+                    },
+                    choice: {
+                        type: [String],
+                    }
+                }
+            ]
+        }
     }, {
         timestamps: true
     });
