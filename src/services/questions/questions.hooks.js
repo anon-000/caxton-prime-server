@@ -1,3 +1,7 @@
+import Permit from '../../hooks/Permit';
+import ModuleValidate from '../../hooks/ModuleValidate';
+import FRequired from '../../hooks/FRequired';
+
 const {authenticate} = require('@feathersjs/authentication').hooks;
 
 module.exports = {
@@ -5,10 +9,17 @@ module.exports = {
         all: [authenticate('jwt')],
         find: [],
         get: [],
-        create: [],
+        create: [
+            Permit('admin', 'organization'),
+            FRequired('question', 'Question is required'),
+            FRequired('options', 'Options are required'),
+            FRequired('answer', 'Answer is required'),
+            FRequired('exam', 'Exam Id is required'),
+            ModuleValidate.isExam(),
+        ],
         update: [],
-        patch: [],
-        remove: []
+        patch: [Permit('admin', 'organization')],
+        remove: [Permit('admin', 'organization')]
     },
 
     after: {
