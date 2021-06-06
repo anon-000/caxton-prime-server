@@ -1,6 +1,7 @@
 import users from './users/users.service.js';
 import examTag from './exam-tag/exam-tag.service.js';
 import exams from './exams/exams.service.js';
+import questions from './questions/questions.service.js';
 import upload from './upload/upload.service.js';
 
 
@@ -10,4 +11,5 @@ export default function (app) {
     app.configure(examTag);
     app.configure(upload);
     app.configure(exams);
+    app.configure(questions);
 }

@@ -1,4 +1,5 @@
 import Permit from '../../hooks/Permit';
+import ModuleValidate from '../../hooks/ModuleValidate';
 
 const {authenticate} = require('@feathersjs/authentication').hooks;
 
@@ -7,7 +8,7 @@ module.exports = {
         all: [authenticate('jwt')],
         find: [],
         get: [],
-        create: [Permit('admin', 'organization')],
+        create: [Permit('admin', 'organization'), ModuleValidate.isExamTag()],
         update: [],
         patch: [Permit('admin', 'organization')],
         remove: [Permit('admin', 'organization')]
