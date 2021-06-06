@@ -1,5 +1,6 @@
 import Permit from '../../hooks/Permit';
 import ModuleValidate from '../../hooks/ModuleValidate';
+import SetQuestionCount from './hooks/SetQuestionCount';
 
 const {authenticate} = require('@feathersjs/authentication').hooks;
 
@@ -16,8 +17,8 @@ module.exports = {
 
     after: {
         all: [],
-        find: [],
-        get: [],
+        find: [SetQuestionCount()],
+        get: [SetQuestionCount()],
         create: [],
         update: [],
         patch: [],
