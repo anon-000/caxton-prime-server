@@ -1,5 +1,3 @@
-import Permit from '../../hooks/Permit';
-
 const {authenticate} = require('@feathersjs/authentication').hooks;
 
 module.exports = {
@@ -7,10 +5,10 @@ module.exports = {
         all: [authenticate('jwt')],
         find: [],
         get: [],
-        create: [Permit('admin')],
+        create: [],
         update: [],
-        patch: [Permit('admin')],
-        remove: [Permit('admin')]
+        patch: [],
+        remove: []
     },
 
     after: {

@@ -1,7 +1,7 @@
-// Initializes the `exam-tag` service on path `/exam-tag`
-const { ExamTag } = require('./exam-tag.class');
-const createModel = require('../../models/exam-tag.model');
-const hooks = require('./exam-tag.hooks');
+// Initializes the `exams` service on path `/exams`
+const {Exams} = require('./exams.class');
+const createModel = require('../../models/exams.model');
+const hooks = require('./exams.hooks');
 
 module.exports = function (app) {
     const options = {
@@ -11,10 +11,10 @@ module.exports = function (app) {
     };
 
     // Initialize our service with any options it requires
-    app.use('/exam-tag', new ExamTag(options, app));
+    app.use('/exams', new Exams(options, app));
 
     // Get our initialized service so that we can register hooks
-    const service = app.service('exam-tag');
+    const service = app.service('exams');
 
     service.hooks(hooks);
 };
