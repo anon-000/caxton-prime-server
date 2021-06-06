@@ -1,3 +1,5 @@
+import SetMarks from './hooks/SetMarks';
+
 const {authenticate} = require('@feathersjs/authentication').hooks;
 
 module.exports = {
@@ -13,8 +15,8 @@ module.exports = {
 
     after: {
         all: [],
-        find: [],
-        get: [],
+        find: [SetMarks()],
+        get: [SetMarks()],
         create: [],
         update: [],
         patch: [],
