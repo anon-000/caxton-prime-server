@@ -16,6 +16,7 @@ module.exports = function (app) {
             type: Number,
             enum: [1, 2, 3],
             required: true,
+            default: 1,
         },
         title: {
             type: String,
@@ -40,7 +41,6 @@ module.exports = function (app) {
              */
             type: Number,
             enum: [1, 2, 3],
-            required: true,
         },
         examTags: [
             {
