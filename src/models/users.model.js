@@ -34,7 +34,15 @@ export default function (app) {
             enum: [1, 2, 3],
             required: true,
         },
-
+        status: {
+            /**
+             * 1. Not-verified in case of organization
+             * 2. verified in case of organization
+             */
+            type: Number,
+            enum: [1, 2],
+            default: 1,
+        },
         gender: {
             /**
              * 1. male
