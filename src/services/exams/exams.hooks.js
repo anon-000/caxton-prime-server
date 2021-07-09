@@ -1,12 +1,19 @@
 import Permit from '../../hooks/Permit';
 import ModuleValidate from '../../hooks/ModuleValidate';
 import SetQuestionCount from './hooks/SetQuestionCount';
+import search from 'feathers-mongodb-fuzzy-search';
+
 
 const {authenticate} = require('@feathersjs/authentication').hooks;
 
 module.exports = {
     before: {
-        all: [authenticate('jwt')],
+        all: [
+            authenticate('jwt'),
+            search({
+                fields: ['title', 'description'],
+            }),
+        ],
         find: [],
         get: [],
         create: [Permit('admin', 'organization'), ModuleValidate.isExamTag()],

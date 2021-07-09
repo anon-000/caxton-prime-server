@@ -1,10 +1,17 @@
 import Permit from '../../hooks/Permit';
+import search from 'feathers-mongodb-fuzzy-search';
+
 
 const {authenticate} = require('@feathersjs/authentication').hooks;
 
 module.exports = {
     before: {
-        all: [authenticate('jwt')],
+        all: [
+            authenticate('jwt'),
+            search({
+                fields: ['name'],
+            }),
+        ],
         find: [],
         get: [],
         create: [Permit('admin')],

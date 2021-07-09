@@ -1,10 +1,17 @@
 import SetMarks from './hooks/SetMarks';
+import search from 'feathers-mongodb-fuzzy-search';
+
 
 const {authenticate} = require('@feathersjs/authentication').hooks;
 
 module.exports = {
     before: {
-        all: [authenticate('jwt')],
+        all: [
+            authenticate('jwt'),
+            search({
+                fields: ['examTitle'],
+            }),
+        ],
         find: [],
         get: [],
         create: [],
