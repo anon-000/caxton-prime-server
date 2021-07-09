@@ -5,6 +5,7 @@ import FRequired from '../../hooks/FRequired';
 import {discard, iff} from 'feathers-hooks-common';
 import IsUser from '../../utils/IsUser';
 import setId from '../../hooks/setId';
+import search from 'feathers-mongodb-fuzzy-search';
 
 const {authenticate} = feathersAuthentication.hooks;
 const {hashPassword, protect} = local.hooks;
@@ -12,7 +13,12 @@ const {hashPassword, protect} = local.hooks;
 export default {
     before: {
         all: [],
-        find: [authenticate('jwt')],
+        find: [
+            authenticate('jwt'),
+            search({
+                fields: ['name', 'username', 'phone', 'email'],
+            }),
+        ],
         get: [authenticate('jwt')],
         create: [FRequired('role', 'Role is required'), hashPassword('password')],
         update: [hashPassword('password'), authenticate('jwt')],

@@ -52,6 +52,7 @@
     "cron": "^1.8.2",
     "dotenv": "^8.2.0",
     "feathers-hooks-common": "^5.0.5",
+    "feathers-mongodb-fuzzy-search": "^2.0.1",
     "feathers-mongoose": "^8.3.1",
     "fs": "^0.0.1-security",
     "googleapis": "^73.0.0",
