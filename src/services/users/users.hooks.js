@@ -6,6 +6,8 @@ import {discard, iff} from 'feathers-hooks-common';
 import IsUser from '../../utils/IsUser';
 import setId from '../../hooks/setId';
 import search from 'feathers-mongodb-fuzzy-search';
+import HasData from "../../utils/HasData";
+import setDefaultItem from "../../hooks/set_default_item";
 
 const {authenticate} = feathersAuthentication.hooks;
 const {hashPassword, protect} = local.hooks;
@@ -20,7 +22,7 @@ export default {
             }),
         ],
         get: [authenticate('jwt')],
-        create: [FRequired('role', 'Role is required'), hashPassword('password')],
+        create: [FRequired('role', 'Role is required'), hashPassword('password'), iff(HasData('role', 1), setDefaultItem('status', 2)), iff(HasData('role', 2), setDefaultItem('status', 1))],
         update: [hashPassword('password'), authenticate('jwt')],
         patch: [discard('role'), hashPassword('password'), authenticate('jwt'), iff(IsUser('student'), setId())],
         remove: [authenticate('jwt')]
