@@ -1,5 +1,7 @@
 import SetMarks from './hooks/SetMarks';
 import search from 'feathers-mongodb-fuzzy-search';
+import setCreatedBy from '../../hooks/set_created_by';
+
 
 
 const {authenticate} = require('@feathersjs/authentication').hooks;
@@ -14,7 +16,7 @@ module.exports = {
         ],
         find: [],
         get: [],
-        create: [],
+        create: [setCreatedBy()],
         update: [],
         patch: [],
         remove: []

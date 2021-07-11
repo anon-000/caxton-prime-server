@@ -28,7 +28,11 @@ module.exports = function (app) {
                     }
                 }
             ]
-        }
+        },
+        createdBy: {
+            type: Schema.Types.ObjectId,
+            ref: 'users',
+        },
     }, {
         timestamps: true
     });

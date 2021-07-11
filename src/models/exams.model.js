@@ -18,6 +18,16 @@ module.exports = function (app) {
             required: true,
             default: 1,
         },
+        status: {
+            /**
+             * 1. Scheduled or created
+             * 2. Ongoing Exams
+             * 3. Completed Tests
+             */
+            type: Number,
+            enum: [1, 2, 3],
+            default: 1,
+        },
         title: {
             type: String,
             required: true,
@@ -49,6 +59,10 @@ module.exports = function (app) {
                 default: []
             },
         ],
+        createdBy: {
+            type: Schema.Types.ObjectId,
+            ref: 'users',
+        },
         scheduledAt: {
             type: Date,
         }
