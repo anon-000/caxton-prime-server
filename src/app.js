@@ -15,6 +15,7 @@ import channels from './channels';
 import authentication from './authentication';
 import mongoose from './mongoose';
 import dotenv from 'dotenv';
+import ExamScheduler from "./cron/exam_scheduler";
 
 const app = express(feathers());
 
@@ -56,5 +57,7 @@ app.use(express.errorHandler({ logger }));
 
 
 app.hooks(appHooks);
+
+app.configure(ExamScheduler);
 
 export default app;
