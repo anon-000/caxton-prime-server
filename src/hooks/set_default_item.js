@@ -8,6 +8,7 @@ const setDefaultItem = (fieldName, defaultValue) => (context) => {
             if (typeof item[fieldName] === 'undefined') item[fieldName] = defaultValue;
         });
     } else {
+        console.log(context.data);
         if (typeof items[fieldName] === 'undefined') items[fieldName] = defaultValue;
     }
 

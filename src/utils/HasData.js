@@ -1,28 +1,21 @@
+
+
 /**
  *
- * @createdBy Aurosmruti Das
- * @email aurosmruti.das@gmail.com
- * @description HasData.js
- * @createdOn 12/07/21 2:25 am
+ * @returns {function(*): boolean}
+ * @constructor
+ * @param name
+ * @param values
  */
 
+const HasData =
+    (name, ...values) =>
+        (context) => {
+            const { data } = context;
 
-import { getItems, replaceItems } from 'feathers-hooks-common';
+            const value = data[name];
 
-const setDefaultItem = (fieldName, defaultValue) => (context) => {
-    const items = getItems(context);
+            return values.indexOf(value) >= 0;
+        };
 
-    if (Array.isArray(items)) {
-        items.forEach((item) => {
-            if (typeof item[fieldName] === 'undefined') item[fieldName] = defaultValue;
-        });
-    } else {
-        if (typeof items[fieldName] === 'undefined') items[fieldName] = defaultValue;
-    }
-
-    replaceItems(context, items);
-
-    return context;
-};
-
-export default setDefaultItem;
+export default HasData;
