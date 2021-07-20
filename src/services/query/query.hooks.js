@@ -1,7 +1,14 @@
+import search from 'feathers-mongodb-fuzzy-search';
+
+
 module.exports = {
     before: {
         all: [],
-        find: [],
+        find: [
+            search({
+                fields: ['name', 'msg', 'phone', 'email'],
+            }),
+        ],
         get: [],
         create: [],
         update: [],
