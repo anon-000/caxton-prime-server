@@ -4,7 +4,7 @@
 // for more of what you can do here.
 
 
-module.exports = function (app) {
+export default function (app) {
     const modelName = 'query';
     const mongooseClient = app.get('mongooseClient');
     const {Schema} = mongooseClient;
@@ -35,4 +35,4 @@ module.exports = function (app) {
     }
     return mongooseClient.model(modelName, schema);
 
-};
+}

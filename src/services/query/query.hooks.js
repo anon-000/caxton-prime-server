@@ -1,7 +1,7 @@
 import search from 'feathers-mongodb-fuzzy-search';
+import CheckForRequiredFields from './hooks/CheckForRequiredFields';
 
-
-module.exports = {
+export default {
     before: {
         all: [],
         find: [
@@ -10,7 +10,7 @@ module.exports = {
             }),
         ],
         get: [],
-        create: [],
+        create: [CheckForRequiredFields()],
         update: [],
         patch: [],
         remove: []
