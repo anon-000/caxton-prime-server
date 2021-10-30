@@ -1,12 +1,12 @@
 import SetMarks from './hooks/SetMarks';
 import search from 'feathers-mongodb-fuzzy-search';
 import setCreatedBy from '../../hooks/set_created_by';
-
-
+import setCreatedByQuery from '../../hooks/set_created_by_query';
+import {disallow} from 'feathers-hooks-common';
 
 const {authenticate} = require('@feathersjs/authentication').hooks;
 
-module.exports = {
+export default {
     before: {
         all: [
             authenticate('jwt'),
@@ -14,12 +14,12 @@ module.exports = {
                 fields: ['examTitle'],
             }),
         ],
-        find: [],
-        get: [],
+        find: [setCreatedByQuery('createdBy')],
+        get: [setCreatedByQuery('createdBy')],
         create: [setCreatedBy()],
-        update: [],
-        patch: [],
-        remove: []
+        update: [disallow()],
+        patch: [disallow()],
+        remove: [disallow()]
     },
 
     after: {
