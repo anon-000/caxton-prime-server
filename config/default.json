@@ -28,6 +28,6 @@
             "passwordField": "password"
         }
     },
-    "mongodb": "MONGO_URL",
+    "mongodb": "mongodb+srv://caxton:prime@caxton-cluster.8uw11.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
     "CREDENTIALS_PATH": "GOOGLE_APPLICATION_CREDENTIALS"
 }

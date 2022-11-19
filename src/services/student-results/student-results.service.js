@@ -1,9 +1,10 @@
 // Initializes the `student-results` service on path `/student-results`
-const {StudentResults} = require('./student-results.class');
-const createModel = require('../../models/student-results.model');
-const hooks = require('./student-results.hooks');
+import { StudentResults } from './student-results.class';
 
-module.exports = function (app) {
+import createModel from '../../models/student-results.model';
+import hooks from './student-results.hooks';
+
+export default function (app) {
     const options = {
         Model: createModel(app),
         paginate: app.get('paginate'),

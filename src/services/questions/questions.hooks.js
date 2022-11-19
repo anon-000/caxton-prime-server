@@ -2,9 +2,12 @@ import Permit from '../../hooks/Permit';
 import ModuleValidate from '../../hooks/ModuleValidate';
 import FRequired from '../../hooks/FRequired';
 
-const {authenticate} = require('@feathersjs/authentication').hooks;
+import '@feathersjs/authentication';
+import * as feathersAuthentication from '@feathersjs/authentication';
 
-module.exports = {
+const { authenticate } = feathersAuthentication;
+
+export default {
     before: {
         all: [authenticate('jwt')],
         find: [],

@@ -1,9 +1,10 @@
 // Initializes the `exam-tag` service on path `/exam-tag`
-const { ExamTag } = require('./exam-tag.class');
-const createModel = require('../../models/exam-tag.model');
-const hooks = require('./exam-tag.hooks');
+import { ExamTag } from './exam-tag.class';
 
-module.exports = function (app) {
+import createModel from '../../models/exam-tag.model';
+import hooks from './exam-tag.hooks';
+
+export default function (app) {
     const options = {
         Model: createModel(app),
         paginate: app.get('paginate'),

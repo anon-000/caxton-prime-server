@@ -1,10 +1,13 @@
 import Permit from '../../hooks/Permit';
 import search from 'feathers-mongodb-fuzzy-search';
+import * as feathersAuthentication from '@feathersjs/authentication';
+
+const { authenticate } = feathersAuthentication;
 
 
-const {authenticate} = require('@feathersjs/authentication').hooks;
+import '@feathersjs/authentication';
 
-module.exports = {
+export default {
     before: {
         all: [
             authenticate('jwt'),

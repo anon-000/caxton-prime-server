@@ -4,7 +4,10 @@ import setCreatedBy from '../../hooks/set_created_by';
 import setCreatedByQuery from '../../hooks/set_created_by_query';
 import {disallow} from 'feathers-hooks-common';
 
-const {authenticate} = require('@feathersjs/authentication').hooks;
+import '@feathersjs/authentication';
+import * as feathersAuthentication from '@feathersjs/authentication';
+
+const { authenticate } = feathersAuthentication;
 
 export default {
     before: {

@@ -3,11 +3,14 @@ import ModuleValidate from '../../hooks/ModuleValidate';
 import SetQuestionCount from './hooks/SetQuestionCount';
 import search from 'feathers-mongodb-fuzzy-search';
 import setCreatedBy from '../../hooks/set_created_by';
+import * as feathersAuthentication from '@feathersjs/authentication';
+
+const { authenticate } = feathersAuthentication;
 
 
-const {authenticate} = require('@feathersjs/authentication').hooks;
+import '@feathersjs/authentication';
 
-module.exports = {
+export default {
     before: {
         all: [
             authenticate('jwt'),
