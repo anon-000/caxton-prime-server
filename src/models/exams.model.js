@@ -2,7 +2,7 @@
 //
 // See http://mongoosejs.com/docs/models.html
 // for more of what you can do here.
-module.exports = function (app) {
+export default function (app) {
     const modelName = 'exams';
     const mongooseClient = app.get('mongooseClient');
     const {Schema} = mongooseClient;

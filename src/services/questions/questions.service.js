@@ -1,9 +1,10 @@
 // Initializes the `questions` service on path `/questions`
-const {Questions} = require('./questions.class');
-const createModel = require('../../models/questions.model');
-const hooks = require('./questions.hooks');
+import { Questions } from './questions.class';
 
-module.exports = function (app) {
+import createModel from '../../models/questions.model';
+import hooks from './questions.hooks';
+
+export default function (app) {
     const options = {
         Model: createModel(app),
         paginate: false

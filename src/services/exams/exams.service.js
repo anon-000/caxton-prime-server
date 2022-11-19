@@ -1,9 +1,10 @@
 // Initializes the `exams` service on path `/exams`
-const {Exams} = require('./exams.class');
-const createModel = require('../../models/exams.model');
-const hooks = require('./exams.hooks');
+import { Exams } from './exams.class';
 
-module.exports = function (app) {
+import createModel from '../../models/exams.model';
+import hooks from './exams.hooks';
+
+export default function (app) {
     const options = {
         Model: createModel(app),
         paginate: app.get('paginate'),

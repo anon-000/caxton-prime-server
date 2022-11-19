@@ -1,9 +1,10 @@
 // Initializes the `query` service on path `/query`
-const {Query} = require('./query.class');
-const createModel = require('../../models/query.model');
-const hooks = require('./query.hooks');
+import { Query } from './query.class';
 
-module.exports = function (app) {
+import createModel from '../../models/query.model';
+import hooks from './query.hooks';
+
+export default function (app) {
     const options = {
         Model: createModel(app),
         paginate: app.get('paginate'),
